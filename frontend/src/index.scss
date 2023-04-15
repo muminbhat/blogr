@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  font-family:sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-color: #212529;
+  color: white;
+  min-height: 100%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.text-body-emphasis {
+  --bs-text-opacity: 1;
+  color: white!important;
+}
+
+.text-body-secondary{
+  --bs-text-opacity: 1;
+  color:white!important;
+}
+
+.nav-link {
+  color: white !important;
+  border-radius: 0.5rem;
+  
+}
+
+.nav-link:hover {
+  background-color: #198754;
+  border-radius: 0.5rem;
+  
+}
+
+.nav-link.active {
+  background-color:#198754;
+}
+
+.logo:hover {
+  color: #198754 !important;
+  transition: .15s ease-in-out;
+}
+
+.bg-body-tertiary {
+  background-color: #212529!important;
+  border-color: #616161!important;
+}
+
+a {
+  text-decoration: none;
+}
+
+.bl-hero{
+  border-radius: 20px;
+}
