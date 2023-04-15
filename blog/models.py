@@ -6,7 +6,7 @@ from django.utils.text import slugify
 class Blog(models.Model):
     sno = models.AutoField(primary_key=True)
     title = models.CharField(max_length=255)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True,  allow_unicode=True, blank=True)
     author = models.CharField(max_length=255)
     read_time = models.IntegerField()
     publish_time = models.DateTimeField(default=timezone.now)

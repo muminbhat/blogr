@@ -22,3 +22,8 @@ urlpatterns = [
     path('', include('home.urls')),
     path('', include('blog.urls')),
 ]
+
+# Django Titles
+admin.site.site_header = "BlogR"
+admin.site.site_title = "BlogR Admin Portal"
+admin.site.index_title = "BlogR - Administration"
