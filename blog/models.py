@@ -10,7 +10,7 @@ class Blog(models.Model):
     author = models.CharField(max_length=255)
     read_time = models.IntegerField()
     publish_time = models.DateTimeField(default=timezone.now)
-    hero_image = models.ImageField(blank=True)
+    hero_image = models.ImageField(blank=True,)
     content = models.TextField()
     tags = models.CharField(max_length=100)
     status = models.BooleanField(default=True)
@@ -20,3 +20,6 @@ class Blog(models.Model):
     def save(self,*args,**kwargs):
         self.slug=slugify(self.title)
         super(Blog,self).save(*args,**kwargs)
+    
+    def __str__(self):
+        return self.title

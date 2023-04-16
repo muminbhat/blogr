@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'blog',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -140,3 +141,8 @@ JAZZMIN_SETTINGS = {
     # title of the window (Will default to current_admin_site.site_title if absent or None)
     "copyright": "Mumin Bhat",
 }
+
+# Uploading Image
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+

@@ -1,11 +1,19 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .models import Blog
+from .serializers import BlogSerializer
+
 
 # Create your views here.
-def blog():
-    return HttpResponse('The Page Is Currently Going Scheduled Maitnenance')
+@api_view(['GET'])
+def blog(request):
+    blog = Blog.objects.all()
+    serializer = BlogSerializer(blog, many=True )
+    return Response(serializer.data)
 
-def blogpost(request, slug):
-    post = Blog.objects.filter(slug=slug)
-    context = {'post':post}
-    return render(request, 'index.html', context)
+@api_view(['GET'])
+def blogPost(request, pk):
+    blogpost = Blog.objects.get(sno=pk)
+    serializer = BlogSerializer(blogpost, many=False)
+    return Response(serializer.data)
+
