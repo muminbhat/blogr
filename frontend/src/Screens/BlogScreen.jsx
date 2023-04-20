@@ -19,10 +19,11 @@ const BlogScreen = (props) => {
       catch (err) {
 
       }
+      props.setProgress(100);
     }
-    props.setProgress(100);
     fetchData([id]);
-  }, [id, props]);
+    // eslint-disable-next-line
+  }, [id]);
 
   return (
     <>

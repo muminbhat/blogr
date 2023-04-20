@@ -8,18 +8,18 @@ const BlogList = (props) => {
 
 
   useEffect(() => {
-    props.setProgress(20);
-
+    
     const fetchBlogs = async () => {
+      props.setProgress(20);
         try {
             const res = await axios.get(`${'http://127.0.0.1:8000/blog'}`);
             setBlogs(res.data);
           }
           catch (err) {
           }
+          props.setProgress(100);
         }
         fetchBlogs();
-        props.setProgress(100);
       }, [props]);
       
 
@@ -54,6 +54,7 @@ const blogList = blogs.map(blogs=>
           </div>
           </Link>
       </div>
+      
     </div>
 
 

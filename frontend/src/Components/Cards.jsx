@@ -17,10 +17,11 @@ const Cards = () => {
     fetchBlogs();
   }, []);
 
+  let blog = '/blog/'
+
   const Cards = blogCard.map((blogCard) => (
     <div key={blogCard.sno}>
-      <Link to="/blog">
-        {" "}
+      <Link to={blog+blogCard.slug}>
         <div className="col">
           <div
             className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg border border-black"
