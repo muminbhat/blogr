@@ -1,23 +1,27 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import TextTruncate from 'react-text-truncate';
 
-const BlogList = () => {
+const BlogList = (props) => {
   const [blogs, setBlogs] = useState([]);
 
+
   useEffect(() => {
+    props.setProgress(20);
+
     const fetchBlogs = async () => {
         try {
             const res = await axios.get(`${'http://127.0.0.1:8000/blog'}`);
             setBlogs(res.data);
-            console.log(res.data)
+          }
+          catch (err) {
+          }
         }
-        catch (err) {
-        }
-    }
-    fetchBlogs();
-}, []);
-
+        fetchBlogs();
+        props.setProgress(100);
+      }, [props]);
+      
 
 
 const blogList = blogs.map(blogs=> 
@@ -33,6 +37,7 @@ const blogList = blogs.map(blogs=>
               <h3 className="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">
                 {blogs.title}
               </h3>
+              <p> <TextTruncate     line={2}     element="span"     truncateText="…"     text={blogs.content}/></p>
               <ul className="d-flex list-unstyled mt-auto">
                 <li className="d-flex align-items-center me-3">
                   <small className="badge bg-success-subtle border border-success-subtle text-success-emphasis rounded-pill">

@@ -3,11 +3,13 @@ import axios from 'axios'
 import { useParams } from "react-router-dom";
 
 
-const BlogScreen = ({match}) => {
+const BlogScreen = (props) => {
+  
   const [blogScreen, setBlogScreen] = useState({});
   const { id } = useParams();
-
+  
   useEffect(() => {
+    props.setProgress(20);
     const fetchData = async () => {
       try{
         const res = await axios.get(`http://127.0.0.1:8000/blog/${id}/`);
@@ -18,8 +20,9 @@ const BlogScreen = ({match}) => {
 
       }
     }
+    props.setProgress(100);
     fetchData([id]);
-  }, [id]);
+  }, [id, props]);
 
   return (
     <>
