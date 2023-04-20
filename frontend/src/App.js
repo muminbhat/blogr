@@ -7,6 +7,7 @@ import BlogScreen from "./Screens/BlogScreen";
 
 import { BrowserRouter as Router, Routes, Route}
     from 'react-router-dom';
+import BlogList from "./Screens/BlogList";
 
 const App = () => {
   return (
@@ -14,7 +15,8 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route exact path='/' element={<HomeScreen />} />
-        <Route exact path='/blog/' element={<BlogScreen />} />
+        <Route exact path='/blog/:id' element={<BlogScreen />} />
+        <Route exact path='/blog/' element={<BlogList/>} />
       </Routes>
       <Footer />
     </Router>
